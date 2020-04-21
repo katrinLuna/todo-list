@@ -1,5 +1,6 @@
 <ul>
   <li *ngFor="let goal of goals">
     {{ goal.name }}
+    <nu-btn routerLink="/edit-goal/{{ goal.id }}">Редактировать задачу</nu-btn>
   </li>
 </ul>
