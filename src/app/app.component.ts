@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todo-list';
+  constructor(private route: ActivatedRoute){
+    console.log(this.route);
+  }
 }
