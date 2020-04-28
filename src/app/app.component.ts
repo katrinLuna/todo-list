@@ -7,7 +7,7 @@ import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private route: ActivatedRoute){
-    console.log(this.route);
-  }
+  // constructor(private route: ActivatedRoute){
+  //   console.log(this.route);
+  // }
 }

@@ -1,11 +1,57 @@
 <!-- - задача должна включать следующее поля:
-- *название
-- *описание
-- *важность задачи (обычная, важная, очень важная)
 - *created date,
 - deadline date,
 - completed date -->
-<nu-btn routerLink="/">Назад</nu-btn>
-<nu-heading level="1"> Создание задачи</nu-heading>
-<!-- size="h1|||h3" -->
+<nu-flow gap="4x">
+  <nu-pane content="flex-start">
+    <nu-btn routerLink="/">Назад</nu-btn>
+    <nu-heading level="1" size="h1||h3">
+      Создание задачи
+    </nu-heading>
+  </nu-pane>
+  <!--  -->
+
+  <nu-flex flow="column" gap="3x">
+    <nu-block>
+      <nu-label display="block">
+        Название задачи
+      </nu-label>
+      <nu-input labelledby=":prev" width="100%" (input)="form.name = $event.detail"></nu-input>
+      <!-- [value]="form.name" -->
+    </nu-block>
+    <nu-block>
+      <nu-label display="block">
+        Описание задачи
+      </nu-label>
+      <nu-input labelledby=":prev" width="100%" (input)="form.description = $event.detail"></nu-input>
+    </nu-block>
+    <nu-grid items="center start" columns="auto 1fr|||1fr" gap=".5">
+      <nu-label display="block">
+        Важность&nbsp;задачи
+      </nu-label>
+      <nu-attrs for="nu-btn" toggle="0 :active[1]" fill="bg :pressed[special-bg]"></nu-attrs>
+      <nu-btngroup value="normal" role="radiogroup" (input)="form.importance = $event.detail">
+        <nu-btn value="normal" role="radio">Обычная</nu-btn>
+        <nu-btn value="important" role="radio">Важная</nu-btn>
+        <nu-btn value="very-important" role="radio">Очень важная</nu-btn>
+      </nu-btngroup>
+    </nu-grid>
+    <nu-block>
+      <nu-label display="block">
+        Сделать до:
+      </nu-label>
+      <input class="submit" type="date" [(ngModel)]="form.date" [ngModelOptions]="{ standalone: true }">
+    </nu-block>
+    <nu-btn  special place="center||stretch" width="min(20)">
+      Создать задачу
+    </nu-btn>
+
+    {{ form.id }}
+    {{ form.name }}
+    {{ form.description }}
+    {{ form.importance }}
+    {{ form.date }}
+
+  </nu-flex>
+</nu-flow>
 
